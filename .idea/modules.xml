@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ElementalGame.iml" filepath="$PROJECT_DIR$/.idea/ElementalGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ElementalGameClient/ElementalGameClient.iml" filepath="$PROJECT_DIR$/ElementalGameClient/ElementalGameClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ElementalGameServer/ElementalGameServer.iml" filepath="$PROJECT_DIR$/ElementalGameServer/ElementalGameServer.iml" />
+    </modules>
+  </component>
+</project>
