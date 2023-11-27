@@ -23,8 +23,7 @@ class GameIntroPanel extends JPanel{
 	private Image resizeWaterGirl = waterGirlIcon.getImage().getScaledInstance(GameClientFrame.SCREEN_WIDTH/4, GameClientFrame.SCREEN_HEIGHT/2, Image.SCALE_SMOOTH);
 	private Image resizeFireBoy = fireBoyIcon.getImage().getScaledInstance(GameClientFrame.SCREEN_WIDTH/4, GameClientFrame.SCREEN_HEIGHT/2, Image.SCALE_SMOOTH);
 	
-	public static GameAudio audio;
-	
+
 	public GameIntroPanel() {
 		
 		setSize(GameClientFrame.SCREEN_WIDTH,GameClientFrame.SCREEN_HEIGHT);

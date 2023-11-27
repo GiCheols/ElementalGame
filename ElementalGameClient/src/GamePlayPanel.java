@@ -203,9 +203,9 @@ public class GamePlayPanel extends JPanel implements Runnable{
     		Door door = doors.get(i);
 			
     		if(door.getState()%2 == GameClientFrame.userNum%2) { // user가 도착했는지 판단
-    			if(myInfo.getState()==State.FRONT&&(door.getX()<=myXpos&&myXpos<=door.getX()+door.getWidth())
-    				&& (door.getX()<=myXpos+myWidth&&myXpos+myWidth<=door.getX()+door.getWidth())
-    				&& (door.getY()<=myYpos&&myYpos<=door.getY()+door.getHeight())) {
+    			if(myInfo.getState()==State.FRONT&&(door.getX()<=myXpos&&myXpos<=door.getX()+door.getW())
+    				&& (door.getX()<=myXpos+myWidth&&myXpos+myWidth<=door.getX()+door.getW())
+    				&& (door.getY()<=myYpos&&myYpos<=door.getY()+door.getH())) {
     				isArrive = true;
     			}
     			else 
@@ -215,9 +215,9 @@ public class GamePlayPanel extends JPanel implements Runnable{
     		}
     		else { // opponent가 도착했는지 판단
     			
-    			if(opponentInfo.getState()==State.FRONT&&(door.getX()<=opponentXpos&&opponentXpos<=door.getX()+door.getWidth())
-        				&& (door.getX()<=opponentXpos+opponentWidth&&opponentXpos+opponentWidth<=door.getX()+door.getWidth())
-        				&& (door.getY()<=opponentYpos&&opponentYpos<=door.getY()+door.getHeight())) {
+    			if(opponentInfo.getState()==State.FRONT&&(door.getX()<=opponentXpos&&opponentXpos<=door.getX()+door.getW())
+        				&& (door.getX()<=opponentXpos+opponentWidth&&opponentXpos+opponentWidth<=door.getX()+door.getW())
+        				&& (door.getY()<=opponentYpos&&opponentYpos<=door.getY()+door.getH())) {
     				isOpponentArrive = true;
     			}
     			else
@@ -699,7 +699,7 @@ public class GamePlayPanel extends JPanel implements Runnable{
     	
     	characterRec = new Rectangle(x,y,myWidth,myHeight);
 		for(int i=0;i<blocks.size();i++) {
-			if(characterRec.intersects(blocks.get(i).getRectangle())) {
+			if(characterRec.intersects(blocks.get(i).getBlockRec())) {
 				return false;
 			}
 		}

@@ -1,5 +1,7 @@
 package MapObject;
 
+import lombok.Getter;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -7,7 +9,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-
+@Getter
 public class Door { //6는 water door, 7은 fire door
 	
 	public static final int DOOR_WIDTH = 56;
@@ -22,7 +24,7 @@ public class Door { //6는 water door, 7은 fire door
 		
 		 return new ImageIcon(icon.getImage().getScaledInstance(width,height,Image.SCALE_SMOOTH));
 	}
-	
+
 	int x, y, w, h;
 	
 	
@@ -44,13 +46,6 @@ public class Door { //6는 water door, 7은 fire door
 			img = resizeImage(new ImageIcon("src/static/image/elements/fire_door.png"),DOOR_WIDTH,DOOR_HEIGHT).getImage();
 		}
 	}
-	
-	public Image getImg() {return img;}
-	public int getX() {return x;}
-	public int getY() {return y;}
-	public int getWidth() {return w;}
-	public int getHeight() {return h;}
-	public int getState() {return state;}
 //	public String getOpenFireDoorImgPath() {return openFireDoorImgPath;}
 //	public String getOpenWaterDoorImgPath() {return openWaterDoorImgPath;}
 }

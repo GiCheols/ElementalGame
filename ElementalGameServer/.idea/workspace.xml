@@ -5,86 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e00c7909-6d51-45a5-8d01-4ae4d2685d52" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/ChatMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/ChattingPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameAudio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameClearPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameClientApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameClientFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameInfoPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameIntroPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameOverPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GamePlayPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameScreenPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameWaitPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/ListenNetwork.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Door.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Obstacle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Switch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/SwitchBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MenuPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MovingInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/PlayerInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/PlayerListPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/resource/map1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/resource/map2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/background/TempleHallForest.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/background/gamePlayBackground.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/background/game_play_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/FireBoy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/WaterGirl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/die.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/fire boy_enter room.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/fire boy_run left.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/fire boy_run right.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/fire_boy_character.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/water girl_enter room.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/water girl_run left.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/water girl_run right.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/character/water_girl_character.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/Menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/block.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/clickedExitBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/clickedHome.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/clickedStartBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/fire_door.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/fire_gem.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/fire_obstacle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/poison_obstacle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/switch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/switch_block.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/switch_block2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/unclickedExitBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/unclickedHome.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/unclickedStartBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/water_door.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/water_gem.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/elements/water_obstacle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/GameTitle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/WAIT.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/gameclear.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/gameover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/name.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/server.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/server1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/server2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/server3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/image/text/slash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/static/music/IntroMusic.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ChatMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameServerFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovingInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/ElementalGameClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/ElementalGameClient.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameAudio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameClientFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameClientFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameIntroPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameIntroPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GamePlayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameWaitPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameWaitPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/ListenNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/ListenNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MapObject/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/static/music/IntroMusic.wav" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameServerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameServerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ElementalGameClient/GameClientFrame$GameThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ElementalGameClient/GameClientFrame$GameThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ElementalGameClient/GameClientFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ElementalGameClient/GameClientFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ElementalGameClient/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ElementalGameClient/GamePlayPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ElementalGameClient/GameWaitPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ElementalGameClient/GameWaitPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ElementalGameClient/GameWaitPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ElementalGameClient/GameWaitPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ElementalGameClient/ListenNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ElementalGameClient/ListenNetwork.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ElementalGameClient/MapObject/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ElementalGameClient/MapObject/Block.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ElementalGameClient/MapObject/Door.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ElementalGameClient/MapObject/Door.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

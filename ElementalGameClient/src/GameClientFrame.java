@@ -35,8 +35,7 @@ public class GameClientFrame extends JFrame{
 	public static GameScreenPanel gameScreenPane = null;
 	public static ArrayList<String> playerNames = new ArrayList<String>();
 	
-	public static GameAudio audio = new GameAudio();
-	
+
 	public GameClientFrame() {
 		
 		init();
@@ -73,10 +72,7 @@ public class GameClientFrame extends JFrame{
 				}
 					
 				try {
-					
 					Thread.sleep(10);
-			
-					
 				}catch(InterruptedException e) {
 					
 					return;
@@ -95,12 +91,10 @@ public class GameClientFrame extends JFrame{
 		isPlayingScreen = false; // 게임 중인 화면
 		gameScreenPane = null;
 		playerNames.clear();
-		audio.play("background");
 	}
 
 	public void selectScreen() {
 		if (isHomeScreen) { // 홈화면
-			audio.allStop();
 			isHomeScreen = false;
 			init();
 			System.out.println("홈화면으로 바뀌어야해!");
@@ -108,7 +102,6 @@ public class GameClientFrame extends JFrame{
 		}
 		else if (isGameScreen) { // 대기화면
 			isGameScreen = false;
-			audio.allStop();
 			System.out.println("게임 화면으로 바뀌어야해!");
 			if(gameScreenPane == null) {
 				System.out.println("gameScreenPane == null");
@@ -128,20 +121,16 @@ public class GameClientFrame extends JFrame{
 		}
 		else if (isPlayingScreen) {
 			System.out.println("플레이 화면으로 바뀌어야해!");
-			audio.stop("background");
-			audio.play("gamePlay");
 			isPlayingScreen = false;
 			gameScreenPane.changeToPlaypanel();
 		}
 		else if (isGameOverScreen) {
 			System.out.println("게임오버 화면으로 바뀌어야해!");
-			audio.allStop();
 			isGameOverScreen = false;
 			gameScreenPane.changeToGameOverPanel();
 		}
 		else if (isGameClearScreen) {
 			System.out.println("게임클리어 화면으로 바뀌어야해!");
-			audio.allStop();
 			isGameClearScreen = false;
 			gameScreenPane.changeToGameClearPanel();
 		}

@@ -65,7 +65,8 @@ public class GameWaitPanel extends JPanel{
 		this.add(fireboyLabel);
 		
 		waitLabel.setBounds(239,308,284,100);
-		waitIcon = new ImageIcon(new ImageIcon(waitImgPath).getImage().getScaledInstance(waitLabel.getWidth(),waitLabel.getHeight(),Image.SCALE_DEFAULT));
+		waitIcon = new ImageIcon(new ImageIcon(waitImgPath).getImage()
+				.getScaledInstance(waitLabel.getWidth(),waitLabel.getHeight(),Image.SCALE_DEFAULT));
 		waitLabel.setIcon(waitIcon);
 		this.add(waitLabel);
 		
@@ -125,7 +126,9 @@ public class GameWaitPanel extends JPanel{
 				gameStartBtn.setBorderPainted(false);
 				gameStartBtn.setFocusPainted(false);
 				gameStartBtn.setOpaque(false);
-				gameStartBtn.setBounds(WIDTH/2 - gameStartBtn.getIcon().getIconWidth()/2,428,150,55);
+				gameStartBtn.setBounds(WIDTH/2 - gameStartBtn.getIcon()
+						.getIconWidth()/2,
+						428,150,55);
 				add(gameStartBtn);
 			}
 			

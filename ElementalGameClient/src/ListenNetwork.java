@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 
 //Server Message를 수신해서 화면에 표시
 public class ListenNetwork extends Thread {
-	String ip_addr = "127.0.0.1";
+//	String ip_addr = "127.0.0.1";
 	//String ip_addr = "218.159.204.53";
-//	String ip_addr = "192.168.35.87";
+	String ip_addr = "192.168.200.103";
 	int port_no;
 	int roomId;
 	int playerCharacter = 0;
@@ -55,7 +55,6 @@ public class ListenNetwork extends Thread {
 	}
 	
 	public void run() {
-		
 		while (true) {
 			System.out.println("메시지 대기중...");
 			try {

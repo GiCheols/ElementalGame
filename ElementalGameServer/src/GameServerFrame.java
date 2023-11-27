@@ -92,8 +92,6 @@ public class GameServerFrame extends JFrame {
 
     // 새로운 참가자 accept() 하고 user thread를 새로 생성한다.
     class AcceptServer extends Thread {
-        @SuppressWarnings("unchecked")
-
         ServerSocket socket;
         private Vector UserVec = new Vector(); // 연결된 사용자를 저장할 벡터
 
