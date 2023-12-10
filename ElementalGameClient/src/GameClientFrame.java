@@ -1,13 +1,6 @@
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
-import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.Vector;
-import java.awt.*;
-import javax.swing.*;
 
 public class GameClientFrame extends JFrame{
 		
@@ -33,14 +26,14 @@ public class GameClientFrame extends JFrame{
 
 
 	public static GameScreenPanel gameScreenPane = null;
-	public static ArrayList<String> playerNames = new ArrayList<String>();
+	public static ArrayList<String> playerNames = new ArrayList<>();
 	
 
 	public GameClientFrame() {
 		
 		init();
-		setTitle("FireBoy and WaterGirl");
-		setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
+		setTitle("Elemental Game");
+		setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		setResizable(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,27 +47,18 @@ public class GameClientFrame extends JFrame{
 		this.setFocusable(true);
 	}
 	
-	public static void interruptNet() {
-		net.interrupt();
-		System.out.println("interrupt");
-	}
-	
 	class GameThread extends Thread{ // 게임 전반적 관리
 		
 		public void run() {
-			
 			while(true) {
-				
 				if(isChanged) { // 화면에 변화가 필요할 때
-					System.out.println("change 된 사항이 있어!");
+					System.out.println("CHANGE AT SCREEN");
 					isChanged = false;	
 					selectScreen(); // 변경될 화면 선택
 				}
-					
 				try {
 					Thread.sleep(10);
 				}catch(InterruptedException e) {
-					
 					return;
 				}
 			}
@@ -97,12 +81,12 @@ public class GameClientFrame extends JFrame{
 		if (isHomeScreen) { // 홈화면
 			isHomeScreen = false;
 			init();
-			System.out.println("홈화면으로 바뀌어야해!");
+			System.out.println("HOME");
 			setContentPane(new GameIntroPanel());
 		}
 		else if (isGameScreen) { // 대기화면
 			isGameScreen = false;
-			System.out.println("게임 화면으로 바뀌어야해!");
+			System.out.println("WAITING SCREEN");
 			if(gameScreenPane == null) {
 				System.out.println("gameScreenPane == null");
 				gameScreenPane = new GameScreenPanel(roomId,userName);
@@ -120,17 +104,17 @@ public class GameClientFrame extends JFrame{
 			isNextStage = false;
 		}
 		else if (isPlayingScreen) {
-			System.out.println("플레이 화면으로 바뀌어야해!");
+			System.out.println("GAME SCREEN");
 			isPlayingScreen = false;
-			gameScreenPane.changeToPlaypanel();
+			gameScreenPane.changeToPlayPanel();
 		}
 		else if (isGameOverScreen) {
-			System.out.println("게임오버 화면으로 바뀌어야해!");
+			System.out.println("GAME OVER...");
 			isGameOverScreen = false;
 			gameScreenPane.changeToGameOverPanel();
 		}
 		else if (isGameClearScreen) {
-			System.out.println("게임클리어 화면으로 바뀌어야해!");
+			System.out.println("GAME CLEAR");
 			isGameClearScreen = false;
 			gameScreenPane.changeToGameClearPanel();
 		}

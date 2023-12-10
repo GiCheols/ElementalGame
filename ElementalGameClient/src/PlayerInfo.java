@@ -1,12 +1,13 @@
-import java.awt.Image;
+import lombok.Getter;
 
+@Getter
 public class PlayerInfo {
 	int userNum;
-//	Image character;
 	String characterImgPath;
 	String runRightImgPath;
 	String runLeftImgPath;
-	String dieImgPath = "src/static/image/character/die.gif";
+	String dieImgPath = "src/image/character/die.gif";
+	@Getter
 	State type;
 	
 	public PlayerInfo() {
@@ -16,10 +17,6 @@ public class PlayerInfo {
 	public void setUserNum(int userNum) {
 		this.userNum = userNum;
 	}
-   
-//	public void setCharacter(Image character) {
-//		this.character = character;
-//	}
    
 	public void setCharacterImgPath(String characterImgPath) {
 	   this.characterImgPath = characterImgPath;
@@ -33,31 +30,7 @@ public class PlayerInfo {
 	   this.runLeftImgPath = runLeftImgPath;
 	}
 	
-	public void setState(State type) {
+	public void setType(State type) {
 		this.type = type;
-	}
-   
-//	public Image getCharacter() {
-//	   return character;
-//	}
-   
-	public String getCharacterImgPath() {
-	   return characterImgPath;
-	}
-	
-	public String getRunRightImgPath() {
-	   return runRightImgPath;
-	}
-   
-	public String getRunLeftImgPath() {
-	   return runLeftImgPath;
-	}
-	
-	public String getDieImgPath() {
-		   return dieImgPath;
-		}
-	
-	public State getState() {
-		return type;
 	}
 }

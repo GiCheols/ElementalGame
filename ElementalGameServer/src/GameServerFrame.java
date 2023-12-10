@@ -110,57 +110,29 @@ public class GameServerFrame extends JFrame {
         public void run() {
             while (true) { // 사용자 접속을 계속해서 받기 위해 while문
                 try {
-                    AppendText("Waiting new clients ..."+socket.getLocalPort());
+                    AppendText("Waiting new clients ..." + socket.getLocalPort());
                     client_socket = socket.accept(); // accept가 일어나기 전까지는 무한 대기중
                     AppendText("새로운 참가자 from " + client_socket);
                     // User 당 하나씩 Thread 생성
                     UserService new_user = new UserService(client_socket, this);
                     UserVec.add(new_user); // 새로운 참가자 배열에 추가
                     new_user.start(); // 만든 객체의 스레드 실행
-//					AppendText("현재 참가자 수 " + UserVec.size());
                     System.out.println("현재 참가자 수 " + UserVec.size());
                 } catch (IOException e) {
                     AppendText("accept() error");
-                    // System.exit(0);
                 }
             }
         }
     }
 
     public void AppendText(String str) {
-        textArea.append("사용자로부터 들어온 메세지 : " + str+"\n");
-        textArea.append(str + "\n");
-        textArea.setCaretPosition(textArea.getText().length());
-    }
-
-    public void AppendObject(ChatMsg msg) {
-//		 textArea.append("사용자로부터 들어온 object : " + str+"\n");
-        textArea.append("code = " + msg.roomId + "\n");
-        textArea.append("code = " + msg.code + "\n");
-        textArea.append("id = " + msg.UserName + "\n");
-        textArea.append("data = " + msg.data + "\n");
-        textArea.setCaretPosition(textArea.getText().length());
-    }
-
-    public void AppendMovingInfo(MovingInfo msg) {
-//		 textArea.append("사용자로부터 들어온 object : " + str+"\n");
-        textArea.append("code = " + msg.getCode() + "\n");
-        textArea.append("roomId = " + msg.getRoomId() + "\n");
-        textArea.append("posX = " + msg.getPosX() + "\n");
-        textArea.append("posY = " + msg.getPosY() + "\n");
-        textArea.append("characterNum = " + msg.getCharacterNum() + "\n");
-        textArea.append("type = " + msg.getType() + "\n");
+        textArea.append(str+"\n");
         textArea.setCaretPosition(textArea.getText().length());
     }
 
     // User 당 생성되는 Thread
     // Read One 에서 대기 -> Write All
     class UserService extends Thread {
-        private InputStream is;
-        private OutputStream os;
-        private DataInputStream dis;
-        private DataOutputStream dos;
-
         private ObjectInputStream ois;
         private ObjectOutputStream oos;
 
@@ -173,7 +145,6 @@ public class GameServerFrame extends JFrame {
         private int roomId;
 
         public UserService(Socket client_socket, AcceptServer acceptServer) {
-            // TODO Auto-generated constructor stub
             // 매개변수로 넘어온 자료 저장
             this.client_socket = client_socket;
             this.socket = acceptServer.getSocket();
@@ -193,10 +164,6 @@ public class GameServerFrame extends JFrame {
                 gameRoom.getUserVec().add(this);
                 AppendText("새로운 참가자 " + UserName + " 입장.");
                 AppendText("[방"+gameRoom.getRoomId()+"] 참가자 "+gameRoom.getUserVec().size()+"/2");
-//				WriteOne("Welcome to Java chat server\n");
-//				WriteOne(UserName + "님 환영합니다.\n"); // 연결된 사용자에게 정상접속을 알림
-//				String msg = "[" + UserName + "]님이 입장 하였습니다.\n";
-//				WriteOthers(msg); // 아직 user_vc에 새로 입장한 user는 포함되지 않았다.
                 return true;
             }else {
                 AppendText("새로운 참가자 " + UserName + " 입장 거절 당함.");
@@ -221,20 +188,12 @@ public class GameServerFrame extends JFrame {
             System.out.println(gameRoom.getUserVec().size());
             String msg = "[" + UserName + "]님이 퇴장 하였습니다.\n";
             user_vc.removeElement(this); // Logout한 현재 객체를 벡터에서 지운다
-            ChatMsg obcm = new ChatMsg("SERVER",roomId, "999", Integer.toString(getPlayerNum(roomId))+" "+UserName);
-            WriteOtherObject(roomId, obcm); // 나를 제외한 다른 User들에게 전송
+            Broker broker = new Broker("SERVER",roomId, "999", getPlayerNum(roomId) +" "+UserName);
+            WriteOtherObject(roomId, broker); // 나를 제외한 다른 User들에게 전송
             AppendText("사용자 " + "[" + UserName + "] 퇴장. 현재 참가자 수 " + user_vc.size());
 
         }
 
-        // 모든 User들에게 방송. 각각의 UserService Thread의 WriteONe() 을 호출한다.
-        public void WriteAll(String str) {
-            for (int i = 0; i < user_vc.size(); i++) {
-                UserService user = (UserService) user_vc.elementAt(i);
-                if (user.UserStatus == "O")
-                    user.WriteOne(str);
-            }
-        }
         // 모든 User들에게 Object를 방송. 채팅 message와 image object를 보낼 수 있다
         public void WriteAllObject(int roomId, Object ob) {
             GameRoom gameRoom = gameRooms.get(roomId);
@@ -244,16 +203,6 @@ public class GameServerFrame extends JFrame {
                 UserService user = (UserService) gameRoomUserVec.elementAt(i);
                 if (user.UserStatus == "O")
                     user.WriteOneObject(ob);
-            }
-        }
-
-
-        // 나를 제외한 User들에게 방송. 각각의 UserService Thread의 WriteONe() 을 호출한다.
-        public void WriteOthers(String str) {
-            for (int i = 0; i < user_vc.size(); i++) {
-                UserService user = (UserService) user_vc.elementAt(i);
-                if (user != this && user.UserStatus == "O")
-                    user.WriteOne(str);
             }
         }
 
@@ -269,66 +218,6 @@ public class GameServerFrame extends JFrame {
             }
         }
 
-        // Windows 처럼 message 제외한 나머지 부분은 NULL 로 만들기 위한 함수
-        public byte[] MakePacket(String msg) {
-            byte[] packet = new byte[BUF_LEN];
-            byte[] bb = null;
-            int i;
-            for (i = 0; i < BUF_LEN; i++)
-                packet[i] = 0;
-            try {
-                bb = msg.getBytes("euc-kr");
-            } catch (UnsupportedEncodingException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            for (i = 0; i < bb.length; i++)
-                packet[i] = bb[i];
-            return packet;
-        }
-
-        // UserService Thread가 담당하는 Client 에게 1:1 전송
-        public void WriteOne(String msg) {
-            try {
-                ChatMsg obcm = new ChatMsg("SERVER",roomId, "200", msg);
-                oos.writeObject(obcm);
-            } catch (IOException e) {
-                AppendText("dos.writeObject() error");
-                try {
-                    ois.close();
-                    oos.close();
-                    client_socket.close();
-                    client_socket = null;
-                    ois = null;
-                    oos = null;
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-                Logout(); // 에러가난 현재 객체를 벡터에서 지운다
-            }
-        }
-
-        //		// 귓속말 전송
-//		public void WritePrivate(String msg) {
-//			try {
-//				ChatMsg obcm = new ChatMsg("귓속말", "200", msg);
-//				oos.writeObject(obcm);
-//			} catch (IOException e) {
-//				AppendText("dos.writeObject() error");
-//				try {
-//					oos.close();
-//					client_socket.close();
-//					client_socket = null;
-//					ois = null;
-//					oos = null;
-//				} catch (IOException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
-//				Logout(); // 에러가난 현재 객체를 벡터에서 지운다
-//			}
-//		}
         public void WriteOneObject(Object ob) {
             try {
                 oos.writeObject(ob);
@@ -356,15 +245,13 @@ public class GameServerFrame extends JFrame {
 
                     Object obcm = null;
                     String msg = null;
-                    ChatMsg cm = null;
+                    Broker broker = null;
                     MovingInfo mi = null;
 
                     if (socket == null)
                         break;
                     try {
                         obcm = ois.readObject();
-
-                        //System.out.println(obcm instanceof ChatMsg);
                     } catch (ClassNotFoundException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -373,70 +260,66 @@ public class GameServerFrame extends JFrame {
                     if (obcm == null) {
                         break;
                     }
-                    if (obcm instanceof ChatMsg) {
-                        cm = (ChatMsg) obcm;
-                        AppendObject(cm);
+                    if (obcm instanceof Broker) {
+                        broker = (Broker) obcm;
                     }
                     else if (obcm instanceof MovingInfo) {
                         mi = (MovingInfo)obcm;
-//						AppendMovingInfo(mi);
                     }
                     else {
                         continue;
                     }
-                    if(cm != null) {
-                        System.out.println("cm 받음=========================");
-                        if (cm.code.matches("100")) { // login
-                            System.out.println(cm.toString());
+                    if(broker != null) {
+                        if (broker.code.matches("100")) { // login
+                            System.out.println(broker);
                             AppendText("로그인 요청 받음");
-                            UserName = cm.UserName;
+                            UserName = broker.UserName;
                             UserStatus = "O"; // Online 상태
-                            if(Login(cm.roomId)) { // 로그인 성공시
-                                this.roomId = cm.roomId;
-                                int waitingPlayerNum = getPlayerNum(cm.roomId);
+                            if(Login(broker.roomId)) { // 로그인 성공시
+                                this.roomId = broker.roomId;
+                                int waitingPlayerNum = getPlayerNum(broker.roomId);
                                 switch(waitingPlayerNum) {
                                     case 1:
-                                        obcm = new ChatMsg("SERVER", cm.roomId, "100", ALLOW_LOGIN_MSG+" "+waitingPlayerNum);
-                                        WriteAllObject(cm.roomId, obcm);
+                                        obcm = new Broker("SERVER", broker.roomId, "100", ALLOW_LOGIN_MSG+" "+waitingPlayerNum);
+                                        WriteAllObject(broker.roomId, obcm);
                                         break;
                                     case 2:
-                                        obcm = new ChatMsg("SERVER", cm.roomId, "100", ALLOW_LOGIN_MSG+" "+waitingPlayerNum+" "+getUserNames(cm.roomId));
-                                        WriteAllObject(cm.roomId, obcm);
+                                        obcm = new Broker("SERVER", broker.roomId, "100", ALLOW_LOGIN_MSG+" "+waitingPlayerNum+" "+getUserNames(broker.roomId));
+                                        WriteAllObject(broker.roomId, obcm);
                                         break;
                                 }
 
                             }
                             else { // 로그인 실패 시
-                                obcm = new ChatMsg("SERVER", cm.roomId, "100", DENY_LOGIN_MSG);
+                                obcm = new Broker("SERVER", broker.roomId, "100", DENY_LOGIN_MSG);
                                 oos.writeObject(obcm);
                                 break; //스레드 종료
                             }
                         }
-                        else if (cm.code.matches("200")) {
-                            obcm = new ChatMsg(cm.getUserName(), cm.roomId, "200", cm.getData());
-                            WriteOtherObject(cm.roomId, obcm);
+                        else if (broker.code.matches("200")) {
+                            obcm = new Broker(broker.getUserName(), broker.roomId, "200", broker.getData());
+                            WriteOtherObject(broker.roomId, obcm);
                         }
-                        else if (cm.code.matches("300")) {
-                            obcm = new ChatMsg("[SERVER]", cm.roomId, "300","게임을 시작합니다.");
-                            WriteAllObject(cm.roomId, obcm);
+                        else if (broker.code.matches("300")) {
+                            obcm = new Broker("[SERVER]", broker.roomId, "300","게임을 시작합니다.");
+                            WriteAllObject(broker.roomId, obcm);
                         }
-                        else if (cm.code.matches("550")) {
-                            obcm = new ChatMsg(cm.roomId, "550", cm.objIdx,cm.objType);
-                            WriteOtherObject(cm.roomId, obcm);
+                        else if (broker.code.matches("550")) {
+                            obcm = new Broker(broker.roomId, "550", broker.objIdx,broker.objType);
+                            WriteOtherObject(broker.roomId, obcm);
                         }
-                        else if (cm.code.matches("600")) {
-                            System.out.println("cm.getData = "+cm.getData());
-                            obcm = new ChatMsg(cm.getUserName(), cm.roomId, "600", cm.getData());
-                            WriteOtherObject(cm.roomId, obcm);
+                        else if (broker.code.matches("600")) {
+                            System.out.println("broker.getData = "+broker.getData());
+                            obcm = new Broker(broker.getUserName(), broker.roomId, "600", broker.getData());
+                            WriteOtherObject(broker.roomId, obcm);
                         }
-                        else if (cm.code.matches("999")) { // logout message 처리
+                        else if (broker.code.matches("999")) { // logout message 처리
                             System.out.println("999 받음");
                             Logout();
                             break;
-                        } else { // 300, 500, ... 기타 object는 모두 방송한다.
-                            //						WriteAllObject(cm);
                         }
-                    } // end of cm != null..
+
+                    } // end of broker != null..
                     else if (mi != null) {
                         WriteOtherObject(mi.getRoomId(),obcm);
                     }
@@ -444,8 +327,6 @@ public class GameServerFrame extends JFrame {
                 } catch (IOException e) {
                     AppendText("ois.readObject() error");
                     try {
-//						dos.close();
-//						dis.close();
                         ois.close();
                         oos.close();
                         client_socket.close();

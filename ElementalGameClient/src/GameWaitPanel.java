@@ -7,7 +7,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class GameWaitPanel extends JPanel{
@@ -55,18 +54,25 @@ public class GameWaitPanel extends JPanel{
 		setElementsImages();
 		
 		watergirlLabel.setBounds(232,214,100,100);
-	    watergirlIcon = new ImageIcon(new ImageIcon(watergirlImgPath).getImage().getScaledInstance(watergirlLabel.getWidth(),watergirlLabel.getHeight(),Image.SCALE_DEFAULT));
+	    watergirlIcon = new ImageIcon(new ImageIcon(watergirlImgPath)
+				.getImage()
+				.getScaledInstance(watergirlLabel.getWidth(),
+						watergirlLabel.getHeight(), Image.SCALE_DEFAULT));
 	    watergirlLabel.setIcon(watergirlIcon);
 		this.add(watergirlLabel);
 		
 		fireboyLabel.setBounds(360,214,100,100);
-	    fireboyIcon = new ImageIcon(new ImageIcon(fireboyImgPath).getImage().getScaledInstance(fireboyLabel.getWidth(),fireboyLabel.getHeight(),Image.SCALE_DEFAULT));
+	    fireboyIcon = new ImageIcon(new ImageIcon(fireboyImgPath)
+				.getImage()
+				.getScaledInstance(fireboyLabel.getWidth(),
+						fireboyLabel.getHeight(), Image.SCALE_DEFAULT));
 	    fireboyLabel.setIcon(fireboyIcon);
 		this.add(fireboyLabel);
 		
 		waitLabel.setBounds(239,308,284,100);
 		waitIcon = new ImageIcon(new ImageIcon(waitImgPath).getImage()
-				.getScaledInstance(waitLabel.getWidth(),waitLabel.getHeight(),Image.SCALE_DEFAULT));
+				.getScaledInstance(waitLabel.getWidth(),
+						waitLabel.getHeight(), Image.SCALE_DEFAULT));
 		waitLabel.setIcon(waitIcon);
 		this.add(waitLabel);
 		
@@ -74,11 +80,17 @@ public class GameWaitPanel extends JPanel{
 		waitPlayerLabel.setBounds(285, 155, 50, 50);
 		
 		slashLabel.setBounds(340,157,50,50);
-		slashIcon = new ImageIcon(new ImageIcon(slashImgPath).getImage().getScaledInstance(slashLabel.getWidth(),slashLabel.getHeight(),Image.SCALE_SMOOTH));
+		slashIcon = new ImageIcon(new ImageIcon(slashImgPath)
+				.getImage()
+				.getScaledInstance(slashLabel.getWidth(),
+						slashLabel.getHeight(), Image.SCALE_SMOOTH));
 		slashLabel.setIcon(slashIcon);
 		
 		totalPlayerLabel.setBounds(387,155,50,50);
-		totalPlayerIcon  = new ImageIcon(new ImageIcon(totalPlayerImgPath).getImage().getScaledInstance(totalPlayerLabel.getWidth(),totalPlayerLabel.getHeight(),Image.SCALE_SMOOTH));
+		totalPlayerIcon  = new ImageIcon(new ImageIcon(totalPlayerImgPath)
+				.getImage()
+				.getScaledInstance(totalPlayerLabel.getWidth(),
+						totalPlayerLabel.getHeight(), Image.SCALE_SMOOTH));
 		totalPlayerLabel.setIcon(totalPlayerIcon);
 		
 		add(slashLabel);
@@ -88,11 +100,17 @@ public class GameWaitPanel extends JPanel{
 	public void changePlayerNum(int waitingPlayerNum) { // 참여한 플레이어 수 이미지 변경
 		switch (waitingPlayerNum) {
 		case 1: {
-			waitPlayerIcon = new ImageIcon(new ImageIcon(oneImgPath).getImage().getScaledInstance(waitPlayerLabel.getWidth(),waitPlayerLabel.getHeight(),Image.SCALE_SMOOTH));
+			waitPlayerIcon = new ImageIcon(new ImageIcon(oneImgPath)
+					.getImage().getScaledInstance(waitPlayerLabel.getWidth(),
+							waitPlayerLabel.getHeight(),
+							Image.SCALE_SMOOTH));
 			break;
 		}
 		case 2:
-			waitPlayerIcon = new ImageIcon(new ImageIcon(twoImgPath).getImage().getScaledInstance(waitPlayerLabel.getWidth(),waitPlayerLabel.getHeight(),Image.SCALE_SMOOTH));
+			waitPlayerIcon = new ImageIcon(new ImageIcon(twoImgPath).
+					getImage().getScaledInstance(waitPlayerLabel.getWidth(),
+							waitPlayerLabel.getHeight(),
+							Image.SCALE_SMOOTH));
 			break;
 		}
 		waitPlayerLabel.setIcon(waitPlayerIcon);
@@ -115,8 +133,10 @@ public class GameWaitPanel extends JPanel{
 					
 					public void mousePressed(MouseEvent e) {
 						
-						ChatMsg obcm = new ChatMsg(GameClientFrame.userName, GameClientFrame.roomId, "300", "게임을 시작합니다."); // gameRoom 입장 시도
-						ListenNetwork.SendObject(obcm);
+						Broker broker = new Broker(GameClientFrame.userName,
+								GameClientFrame.roomId,
+								"300", "게임을 시작합니다."); // gameRoom 입장 시도
+						ListenNetwork.sendObject(broker);
 						gameStartBtn.setEnabled(false);
 						
 					}
@@ -139,7 +159,6 @@ public class GameWaitPanel extends JPanel{
 	}
 	
 	private void setElementsImages() {
-		
 		 startBtnIcon = new ImageIcon("src/static/image/elements/unclickedStartBtn.png");
 		 resizeStartBtnIcon = resizeImage(startBtnIcon,150,55);
 		 

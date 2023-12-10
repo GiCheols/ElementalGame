@@ -59,11 +59,6 @@ public class PlayerListPanel extends JPanel{
 			remove(player2NameLabel);
 			player1NameLabel = null;
 			player2NameLabel = null;
-			
-//			player1NameLabel = new JLabel(name);
-//			player1NameLabel.setForeground(Color.WHITE);
-//			player1NameLabel.setBounds(65,40,161,15);
-//			add(player1NameLabel);
 		}
 		else if(GameClientFrame.playerNames.indexOf(name)==1) {
 			remove(player2NameLabel);

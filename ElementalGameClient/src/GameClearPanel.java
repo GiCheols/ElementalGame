@@ -28,7 +28,6 @@ public class GameClearPanel extends JPanel{
 		setLayout(null);
 		setVisible(true);
 		setBackground(Color.BLACK);
-//		setElementsImages();
 		
 		gameClearLabel.setBounds(202,189,309,100);
 		gameClearIcon = new ImageIcon(new ImageIcon(gameClearImgPath).getImage().getScaledInstance(gameClearLabel.getWidth(),gameClearLabel.getHeight(),Image.SCALE_DEFAULT));

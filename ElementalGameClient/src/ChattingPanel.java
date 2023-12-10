@@ -14,7 +14,6 @@ public class ChattingPanel extends JPanel{
 	private JScrollPane chattingHistoryScroll = new JScrollPane();
 	public static JTextPane chattingHistory;
 	private JTextArea chattingInput;
-	private String name; // player 닉네임
 	
 	private JPanel chattingInputPane;
 	JLabel nameLabel;
@@ -25,7 +24,6 @@ public class ChattingPanel extends JPanel{
 	public ChattingPanel(String name) {
 		setSize(245,405);
 		setLayout(null);
-//		setBackground(Color.CYAN);
 		
 		// 채팅 기록 보는 부분
 		chattingHistoryScroll.setBounds(0, 0, 245, 309);
@@ -53,7 +51,6 @@ public class ChattingPanel extends JPanel{
 		
 		chattingInput = new JTextArea();
 		chattingInput.setLineWrap(true); // 자동 줄바꿈
-//		chattingInput.setWrapStyleWord(true); // 단어 단위 줄바꿈
 		JScrollPane chattingInputScroll = new JScrollPane(chattingInput);
 		chattingInputScroll.setBounds(3,23,239,38);
 		chattingInputScroll.getViewport().setBackground(Color.WHITE);
@@ -78,15 +75,14 @@ public class ChattingPanel extends JPanel{
 		sendBtn.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				sendBtn.setBackground(sendBtnColor);
-				// 채팅 보내기
 				String text = chattingInput.getText();
 				
 				if(GameClientFrame.waitingPlayerNum == 2) { //접속한 사용자가 있을 때 - 네트워크 전송
-					ChatMsg msg = new ChatMsg(GameClientFrame.userName, GameClientFrame.roomId, "200", text);
-					ListenNetwork.SendObject(msg);
+					Broker msg = new Broker(GameClientFrame.userName, GameClientFrame.roomId, "200", text);
+					ListenNetwork.sendObject(msg);
 				}
 				
-				appendText(GameClientFrame.userName,text); //본인 채팅팬에 넣기
+				appendText(GameClientFrame.userName,text);
 				chattingInput.setText("");
 				
 			}
@@ -98,8 +94,6 @@ public class ChattingPanel extends JPanel{
 	}
 	
 	public static void appendText(String userName,String msg) {
-		// textArea.append(msg + "\n");
-		// AppendIcon(icon1);
 		msg = msg.trim(); // 앞뒤 blank와 \n을 제거한다.
 		int len = chattingHistory.getDocument().getLength();
 		// 끝으로 이동

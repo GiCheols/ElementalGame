@@ -40,22 +40,6 @@ public class Map {
 		
 	}
 
-	public void setBlocks(ArrayList<Block> blocks) {
-		this.blocks = blocks;
-	}
-	
-	public void setItmes(ArrayList<Item> items) {
-		this.items = items;
-	}
-	
-	public void setSwitchBlocks(ArrayList<SwitchBlock> switchBlocks) {
-		this.switchBlocks = switchBlocks;
-	}
-	
-	public void setSwitchBtns(ArrayList<Switch> switchBtns) {
-		this.switchBtns = switchBtns;
-	}
-
 	//map.txt 파일을 읽어 내용을 담은 문자열 배열 생성
 	//map_arr[0] = "1 1 1 1 1 1 ... 1 1"
 	public String[] setMapArr(String path) {
@@ -73,7 +57,6 @@ public class Map {
 			
 			br.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

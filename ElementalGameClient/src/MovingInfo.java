@@ -1,7 +1,8 @@
+import lombok.Getter;
+
 import java.io.Serializable;
 
-enum State {LEFT, RIGHT, FRONT}
-
+@Getter
 public class MovingInfo implements Serializable{
 	private static final long serialVersionUID = 2L;
 	private String code;
@@ -9,6 +10,7 @@ public class MovingInfo implements Serializable{
 	private int posX;
 	private int posY;
 	private int characterNum;
+	@Getter
 	private State type;
 	
 	public MovingInfo(String code, int roomId, int posX, int posY, int characterNum, State type) {
@@ -19,16 +21,5 @@ public class MovingInfo implements Serializable{
 		this.characterNum = characterNum;
 		this.type = type;	
 	}
-	
-	public int getPosX() {
-		return posX;
-	}
 
-	public int getPosY() {
-		return posY;
-	}
-	
-	public State getType() {
-		return type;
-	}
 }

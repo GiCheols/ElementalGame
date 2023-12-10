@@ -29,10 +29,13 @@ public class GameOverPanel extends JPanel{
 		setLayout(null);
 		setVisible(true);
 		setBackground(Color.BLACK);
-//		setElementsImages();
 		
 		gameOverLabel.setBounds(214,189,284,100);
-		gameoverIcon = new ImageIcon(new ImageIcon(gameOverImgPath).getImage().getScaledInstance(gameOverLabel.getWidth(),gameOverLabel.getHeight(),Image.SCALE_DEFAULT));
+		gameoverIcon = new ImageIcon(new ImageIcon(gameOverImgPath)
+				.getImage()
+				.getScaledInstance(gameOverLabel.getWidth(),
+						gameOverLabel.getHeight(),
+						Image.SCALE_DEFAULT));
 		gameOverLabel.setIcon(gameoverIcon);
 		this.add(gameOverLabel);
 		
@@ -47,7 +50,9 @@ public class GameOverPanel extends JPanel{
 		exitBtn.setBorderPainted(false);
 		exitBtn.setFocusPainted(false);
 		exitBtn.setOpaque(false);
-		exitBtn.setBounds(WIDTH/2 - resizeExitBtnIcon.getIconWidth()/2,HEIGHT/2+80- resizeExitBtnIcon.getIconHeight()/2,resizeExitBtnIcon.getIconWidth(),resizeExitBtnIcon.getIconHeight());
+		exitBtn.setBounds(WIDTH / 2 - resizeExitBtnIcon.getIconWidth() / 2,
+				HEIGHT / 2 + 80 - resizeExitBtnIcon.getIconHeight() / 2,
+				resizeExitBtnIcon.getIconWidth(), resizeExitBtnIcon.getIconHeight());
 		add(exitBtn);
 		exitBtn.addMouseListener(new MouseAdapter() { // exit 버튼 눌렀을 때 동작
 			public void mouseEntered(MouseEvent e) {

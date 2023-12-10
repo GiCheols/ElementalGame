@@ -1,11 +1,15 @@
+import lombok.Getter;
+
 import java.net.ServerSocket;
 import java.util.Vector;
+@Getter
 public class GameRoom extends Thread{
-    @SuppressWarnings("unchecked")
 
     private ServerSocket socket;
     private int roomId; // 게임방 id
+    @Getter
     private Vector UserVec; // UserService 벡터
+    @Getter
     private Vector UserNameVec; // 참여자 이름 벡터
 
     // 새로운 참가자 accept() 하고 user thread를 새로 생성한다.
@@ -15,22 +19,6 @@ public class GameRoom extends Thread{
         UserVec = new Vector();
         UserNameVec = new Vector();
         System.out.println("["+roomId+"] UserVec.size()="+UserVec.size());
-    }
-
-    public int getRoomId() {
-        return roomId;
-    }
-
-    public ServerSocket getSocket() {
-        return this.socket;
-    }
-
-    public Vector getUserVec() {
-        return this.UserVec;
-    }
-
-    public Vector getUserNameVec() {
-        return this.UserNameVec;
     }
 
     public boolean enterRoom(String userName) {

@@ -1,61 +1,59 @@
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 // 서버 입장 이후 게임하는 화면 (대기, 게임, 채팅...)
 public class GameScreenPanel extends JPanel{
 
-	private GameWaitPanel gameWaitPane;
-	private GameInfoPanel gameInfoPane;
-	private GamePlayPanel gamePlayPane = null;
-	private GameOverPanel gameOverPane = null;
-	private GameClearPanel gameClearPane = null;
+	private GameWaitPanel gameWaitPanel;
+	private GameInfoPanel gameInfoPanel;
+	private GamePlayPanel gamePlayPanel = null;
+	private GameOverPanel gameOverPanel = null;
+	private GameClearPanel gameClearPanel = null;
 
 	public GameScreenPanel(int roomId, String userName) {
-		setSize(GameClientFrame.SCREEN_WIDTH,GameClientFrame.SCREEN_HEIGHT);
-		System.out.println(GameClientFrame.SCREEN_WIDTH+","+GameClientFrame.SCREEN_HEIGHT);
+		setSize(GameClientFrame.SCREEN_WIDTH,
+				GameClientFrame.SCREEN_HEIGHT);
 		setLayout(null);
 		setVisible(true);
 
 		// 게임 대기 화면 (왼쪽)
-		gameWaitPane = new GameWaitPanel();
-		add(gameWaitPane);
+		gameWaitPanel = new GameWaitPanel();
+		add(gameWaitPanel);
 		
-		gameWaitPane.setBackground(Color.BLACK);
+		gameWaitPanel.setBackground(Color.BLACK);
 		
 		changeWaitPlayerNum();
 		
 		// 게임 정보 화면(오른쪽) (서버 정보, 홈버튼, 채팅...)
-		gameInfoPane = new GameInfoPanel();
-		gameInfoPane.setBounds(gameWaitPane.getWidth(), 0, gameInfoPane.getWidth(), gameInfoPane.getHeight());
-		gameInfoPane.setServerName(roomId);
-		gameInfoPane.setUserName(userName);
-		add(gameInfoPane);
+		gameInfoPanel = new GameInfoPanel();
+		gameInfoPanel.setBounds(gameWaitPanel.getWidth(),
+				0, gameInfoPanel.getWidth(),
+				gameInfoPanel.getHeight());
+		gameInfoPanel.setServerName(roomId);
+		gameInfoPanel.setUserName(userName);
+		add(gameInfoPanel);
 		changePlayerList();
 	}
 	
 	public void changeWaitPlayerNum() {
-		gameWaitPane.changePlayerNum(GameClientFrame.waitingPlayerNum); // gameRoom에 입장한 플레이어 수
+		gameWaitPanel.changePlayerNum(GameClientFrame.waitingPlayerNum); // gameRoom에 입장한 플레이어 수
 		if (GameClientFrame.waitingPlayerNum == 2) {
-			gameWaitPane.addGameStartBtn();
+			gameWaitPanel.addGameStartBtn();
 		}
 		this.repaint();
 	}
 	
-	public void changeToPlaypanel() {
-		remove(gameWaitPane);
-		if(gamePlayPane == null) {
-			gamePlayPane = new GamePlayPanel();
-			gamePlayPane.setBounds(0, 0, gamePlayPane.getWidth(), gamePlayPane.getHeight());
-			add(gamePlayPane);
-			addKeyListener(gamePlayPane.testKey);
-			gamePlayPane.addMouseListener(new MouseAdapter() {
+	public void changeToPlayPanel() {
+		remove(gameWaitPanel);
+		if(gamePlayPanel == null) {
+			gamePlayPanel = new GamePlayPanel();
+			gamePlayPanel.setBounds(0, 0, gamePlayPanel.getWidth(), gamePlayPanel.getHeight());
+			add(gamePlayPanel);
+			addKeyListener(gamePlayPanel.testKey);
+			gamePlayPanel.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					System.out.println("mouse click");
@@ -68,42 +66,42 @@ public class GameScreenPanel extends JPanel{
 	}
 	
 	public void changeToGameOverPanel() {
-		remove(gamePlayPane);
-		if(gameOverPane == null) {
-			gameOverPane = new GameOverPanel();
-			gameOverPane.setBounds(0, 0, gameOverPane.getWidth(), gameOverPane.getHeight());
-			add(gameOverPane);
+		remove(gamePlayPanel);
+		if(gameOverPanel == null) {
+			gameOverPanel = new GameOverPanel();
+			gameOverPanel.setBounds(0, 0, gameOverPanel.getWidth(), gameOverPanel.getHeight());
+			add(gameOverPanel);
 		}
 		this.repaint();
 	}
 	
 	public void changeToGameClearPanel() {
-		remove(gamePlayPane);
-		if(gameClearPane == null) {
-			gameClearPane = new GameClearPanel();
-			gameClearPane.setBounds(0, 0, gameClearPane.getWidth(), gameClearPane.getHeight());
-			add(gameClearPane);
+		remove(gamePlayPanel);
+		if(gameClearPanel == null) {
+			gameClearPanel = new GameClearPanel();
+			gameClearPanel.setBounds(0, 0, gameClearPanel.getWidth(), gameClearPanel.getHeight());
+			add(gameClearPanel);
 		}
 		this.repaint();
 	}
 	
 	public void changePlayerList() {
-		gameInfoPane.changePlayerList(GameClientFrame.playerNames);
+		gameInfoPanel.changePlayerList(GameClientFrame.playerNames);
 		this.repaint();
 	}
 	
 	public void removePlayerList(String name) {
-		gameInfoPane.removePlayerList(name);
+		gameInfoPanel.removePlayerList(name);
 		this.repaint();
 	}
 	
 	public void setMovingInfo(int x, int y, State type) {
-		if(gamePlayPane!=null)
-			gamePlayPane.setMoving(x, y, type);
+		if(gamePlayPanel !=null)
+			gamePlayPanel.setMoving(x, y, type);
 	}
 	
 	public void setDieImage() {
-		gamePlayPane.setDieImage();
+		gamePlayPanel.setDieImage();
 	}
 	
 	

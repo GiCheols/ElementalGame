@@ -1,7 +1,4 @@
-import java.awt.Color;
 import java.awt.Image;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -16,13 +13,15 @@ public class GameInfoPanel extends JPanel {
 	private JLabel serverLabel = new JLabel();
 	Image serverNameImg;
 
-	private Image unclickedHomeImg = new ImageIcon("src/static/image/elements/unclickedHome.png").getImage()
+	private Image unClickedHomeImg = new ImageIcon("src/static/image/elements/unclickedHome.png")
+			.getImage()
 			.getScaledInstance(35, 35, Image.SCALE_SMOOTH);
-	private ImageIcon unclickedHomeIcon = new ImageIcon(unclickedHomeImg);
-	private Image homeImg = new ImageIcon("src/static/image/elements/clickedHome.png").getImage().getScaledInstance(35,
+	private ImageIcon unClickedHomeIcon = new ImageIcon(unClickedHomeImg);
+	private Image homeImg = new ImageIcon("src/static/image/elements/clickedHome.png")
+			.getImage().getScaledInstance(35,
 			35, Image.SCALE_SMOOTH);
 	private ImageIcon clickedHomeIcon = new ImageIcon(homeImg);
-	private JButton homeBtn = new JButton(unclickedHomeIcon);
+	private JButton homeBtn = new JButton(unClickedHomeIcon);
 
 	private PlayerListPanel playerList = new PlayerListPanel();
 	private String playerName;
@@ -44,20 +43,20 @@ public class GameInfoPanel extends JPanel {
 		homeBtn.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				homeBtn.setIcon(clickedHomeIcon);
-				// 홈으로 이동 팝업창 띄우기
-				int answer = JOptionPane.showConfirmDialog(null, "홈으로 이동하시겠습니까?", "", JOptionPane.YES_NO_OPTION);
+				int answer = JOptionPane.showConfirmDialog(null
+						, "홈으로 이동하시겠습니까?",
+						"", JOptionPane.YES_NO_OPTION);
 				if (answer == JOptionPane.YES_OPTION) { // 사용자가 yes를 눌렀을 경우
 					GameClientFrame.init();
-					GameClientFrame.isChanged = true; // 화면 변화가 필요함
-					GameClientFrame.isHomeScreen = true; // 홈 화면으로 변화
+					GameClientFrame.isChanged = true; // 화면 변화
+					GameClientFrame.isHomeScreen = true; // 홈 화면으로
 					GameClientFrame.net.exitRoom();
-					//GameClientFrame.net.interrupt();
 					GameClientFrame.net = null;
 				}
 			}
 
 			public void mouseReleased(MouseEvent e) {
-				homeBtn.setIcon(unclickedHomeIcon);
+				homeBtn.setIcon(unClickedHomeIcon);
 			}
 		});
 
@@ -67,20 +66,14 @@ public class GameInfoPanel extends JPanel {
 	}
 
 	public void setServerName(int serverNum) { // 서버 이름 이미지 붙이기
-		String serverNameImgPath = "";
-		switch (serverNum) {
-		case 0:
-			serverNameImgPath = "server1.png";
-			break;
-		case 1:
-			serverNameImgPath = "server2.png";
-			break;
-		case 2:
-			serverNameImgPath = "server3.png";
-			break;
-		}
+		String serverNameImgPath = switch (serverNum) {
+            case 0 -> "server1.png";
+            case 1 -> "server2.png";
+            case 2 -> "server3.png";
+            default -> "";
+        };
 
-		serverNameImg = new ImageIcon("src/static/image/text/" + serverNameImgPath).getImage()
+        serverNameImg = new ImageIcon("src/static/image/text/" + serverNameImgPath).getImage()
 				.getScaledInstance(serverLabel.getWidth(), serverLabel.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon serverNameIcon = new ImageIcon(serverNameImg);
 		serverLabel.setIcon(serverNameIcon);
