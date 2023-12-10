@@ -5,35 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e00c7909-6d51-45a5-8d01-4ae4d2685d52" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/Broker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ElementalGameClient/src/State.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/ChatMsg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/ChattingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/ChattingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameClearPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameClearPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameClientFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameClientFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameInfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameInfoPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameIntroPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameIntroPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameOverPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameOverPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GamePlayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameScreenPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameScreenPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/GameWaitPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/GameWaitPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/ListenNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/ListenNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MenuPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/MovingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/MovingInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/PlayerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/PlayerInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ElementalGameClient/src/PlayerListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ElementalGameClient/src/PlayerListPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ElementalGameServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ElementalGameServer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Broker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameServerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameServerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovingInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +46,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/GiCheol/Desktop/GitHub/ElementalGame/ElementalGameServer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/GiCheol/Desktop/GitHub/ElementalGame/ElementalGameClient&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>

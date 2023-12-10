@@ -93,7 +93,7 @@ public class GamePlayPanel extends JPanel implements Runnable{
     boolean roof = true;
 
    // =================================================================================================
-    public void gameControll() {
+    public void gameControl() {
 		playerItemGetCheck();
 		playerObstacleCheck();
 		if(items.size()==0) {
@@ -147,7 +147,7 @@ public class GamePlayPanel extends JPanel implements Runnable{
     
     public void playerOnSwitchCheck() { 
 			
-    	for(int i = 0; i < switchBtns.size(); i++) {//Item m : items
+    	for(int i = 0; i < switchBtns.size(); i++) {
 				Switch s = switchBtns.get(i);
 				
 				if (isOpponentSwitchOn && opponentlastSwitchIdx == i)
@@ -241,7 +241,7 @@ public class GamePlayPanel extends JPanel implements Runnable{
        {
           while(roof){
              pretime=System.currentTimeMillis();
-             gameControll();
+             gameControl();
              if(isDie || isOpponentDie) { // 죽은 경우, 클리어한 경우 스레드 종료
             	 Thread.sleep(1000);
             	 break;

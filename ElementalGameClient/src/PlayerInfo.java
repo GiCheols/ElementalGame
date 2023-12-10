@@ -7,7 +7,6 @@ public class PlayerInfo {
 	String runRightImgPath;
 	String runLeftImgPath;
 	String dieImgPath = "src/image/character/die.gif";
-	@Getter
 	State type;
 	
 	public PlayerInfo() {
@@ -32,5 +31,9 @@ public class PlayerInfo {
 	
 	public void setType(State type) {
 		this.type = type;
+	}
+
+	public State getType(){
+		return type;
 	}
 }
